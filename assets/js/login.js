@@ -72,10 +72,6 @@ $(function(){
                   return layer.msg(res.message);
               }
   
-            //   登录成功后，还需要把服务器给的token信息给存储起来
-              localStorage.setItem('token','http://api-breakingnews-web.itheima.net')
-
-
               layer.msg("注册成功");
   
               // 提示出来就切换了，可以等关闭之后在切换
@@ -108,8 +104,9 @@ $("#loginForm").on("submit", function (e) {
             if (res.status !== 0) {
                 return layer.msg("登录失败");
             }
-
-            // 提示
+//   登录成功后，还需要把服务器给的token信息给存储起来
+       localStorage.setItem('token',res.token)
+            // 提示  
             layer.msg("登录成功！，即将跳转！");
             // 跳转到后台主页
             location.href = "index.html";
