@@ -30,7 +30,7 @@ function getUserInfo (){
 function renderUserInfo(data){
 // console.log(data);
 //先处理名字
-console.log(data)
+// console.log(data)
 
 //需要将登录名称和昵称做优先级的处理，有限展示昵称
 let name = data.nickname || data.username

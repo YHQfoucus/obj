@@ -100,16 +100,18 @@ $("#loginForm").on("submit", function (e) {
         url: "/api/login",
         data,
         success: function (res) {
-            console.log(res)
+            // console.log(res)
             if (res.status !== 0) {
-                return layer.msg("登录失败");
+                return layer.msg("获取用户信息失败！");
             }
 //   登录成功后，还需要把服务器给的token信息给存储起来
        localStorage.setItem('token',res.token)
             // 提示  
-            layer.msg("登录成功！，即将跳转！");
+            layer.msg("登录成功！，即将跳转！",function(){
+                location.href = "index.html"
+
+            });
             // 跳转到后台主页
-            location.href = "index.html";
         },
     });
 });
